@@ -1,0 +1,9 @@
+package com.axisrooms.rateShopper.enums;
+
+public enum ConfigProperties {
+
+	URL, BROWSER, USERNAME, PASSWORD, OVERRIDEREPORTS,
+
+	PASSEDSTEPSCREENSHOT, FAILEDSTEPSCREENSHOT, SKIPPEDSTEPSCREENSHOT
+
+}

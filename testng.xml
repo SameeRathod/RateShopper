@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	
+	<listeners>
+		<listener class-name="com.axisrooms.rateShopper.listeners.ListenerClass"></listener>
+		<listener class-name="com.axisrooms.rateShopper.listeners.MethodInterceptor"></listener>
+	<listener class-name="com.axisrooms.rateShopper.listeners.AnnotationTransformer"></listener>
+		
+	
+	</listeners>
+  <test thread-count="5" name="Test" parallel="false">
+    <classes>
+		
+		 <class name="com.axisrooms.rateShopper.test.LoginTest"> </class>
+		  <class name="com.axisrooms.rateShopper.test.LoginFunctionalityTest"> </class>
+		 <class name="com.axisrooms.rateShopper.test.FiltersTest"> </class>
+		 <class name="com.axisrooms.rateShopper.test.ReportTest"> </class>
+		 <class name="com.axisrooms.rateShopper.test.RefreshTestForRatesAndMobileRates"> </class>
+		 <class name="com.axisrooms.rateShopper.test.RefreshTestForRates"> </class>
+    
+     
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
