@@ -82,7 +82,7 @@ public class HomePage {
 
 	public HomePage() {
 
-		PageFactory.initElements(new DriverManager().getDriver(), this);
+		PageFactory.initElements(DriverManager.getDriver(), this);
 
 	}
 
@@ -90,15 +90,16 @@ public class HomePage {
 		return this;
 	}
 
-	public HomePage selectHotelFromList(String visibleText) {
+	public HomePage selectHotelFromList(String visibleText) throws InterruptedException {
 		SelectClassUtils.selectByVisibleText(selectHotelFromList, visibleText);
 		ExtentLogger.info("name of hotel is " + visibleText + " selected");
+		Thread.sleep(4000);
 
 		return this;
 	}
 
 	public RefreshPage clickOnRefreshButton() {
-		WebDriverWait wait=new WebDriverWait(new DriverManager().getDriver(), Duration.ofSeconds(20));
+		WebDriverWait wait=new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.elementToBeClickable(clickOnRefreshButton)).click();
 		
 		//new ExplicitWaitFactory().click(clickOnRefreshButton, WaitStrategy.CLICKABLE, " element is clicked");
@@ -108,7 +109,7 @@ public class HomePage {
 
 	public FiltersPage getClickOnFilterSlider( ) {
 		
-		WebDriverWait wait=new WebDriverWait(new DriverManager().getDriver(), Duration.ofSeconds(20));
+		WebDriverWait wait=new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.elementToBeClickable(clickOnFilterSlider)).click();
 		
 		return new FiltersPage();
@@ -204,7 +205,7 @@ public class HomePage {
 					}
 					System.out.println(i);
 					ActionsClassUtils.mouseHoverActions(webElement,driver);
-					WebDriverWait wait=new WebDriverWait(new DriverManager().getDriver(), Duration.ofSeconds(20));
+					WebDriverWait wait=new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(20));
 					wait.until(ExpectedConditions.elementToBeClickable(jobRunningText));
 				
 					
@@ -215,13 +216,13 @@ public class HomePage {
 		}
 		long currentTimeMillis2 = System.currentTimeMillis();
 		long time = currentTimeMillis2 - currentTimeMillis;
-		ExtentLogger.info("Total time taken for refresh is " + time);
+		ExtentLogger.info("Total time taken for refresh is " + time/60000 +" minutes");
 		
 	
-		WebDriverWait wait = new WebDriverWait(new DriverManager().getDriver(), Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10));
 		String text = wait.until(ExpectedConditions.visibilityOf(lastFtechText)).getText();
 
-		WebDriverWait wait1 = new WebDriverWait(new DriverManager().getDriver(), Duration.ofSeconds(10));
+		WebDriverWait wait1 = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10));
 		String text1 = wait1.until(ExpectedConditions.visibilityOf(lastFetchDAteAndTime)).getText();
 		ExtentLogger.info(text + " " + text1);
 		System.out.println(text + " " + text1);

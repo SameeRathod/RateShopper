@@ -37,17 +37,17 @@ public class RefreshPage {
 	@FindBy (xpath = "//h4[@class='quick-links']/following-sibling::li[6]/input")
 	private WebElement clickOnSubmitButton;
 	
-	@FindBy (xpath = "(//button[@type='button'])[3]")
+	@FindBy (xpath = "//button[normalize-space()='OK']")
 	private WebElement clickOnOkButton;
 	
 	@FindBy (xpath = "(//*[name()='text'][normalize-space()='Prices'])[1]")
 	private WebElement getPriceText;
 	
 	@FindBy (xpath = "//h2[@id='swal2-title']")
-	private WebElement getRefreshSumbittedText;
+	public WebElement getRefreshSumbittedText;
 	
 	public RefreshPage() {
-		PageFactory.initElements(new DriverManager().getDriver(), this);
+		PageFactory.initElements(DriverManager.getDriver(), this);
 	}
 
 
@@ -87,16 +87,18 @@ public class RefreshPage {
 		
 	}
 
-	public RefreshPage selectNoOfGuest(String enterNoOfGuest) {
+	public RefreshPage selectNoOfGuest(String enterNoOfGuest) throws InterruptedException {
 		SelectClassUtils.selectByVisibleText(selectNoOfGuest, enterNoOfGuest);
 		ExtentLogger.info("No of Guest is  "+enterNoOfGuest+" selected");
+		Thread.sleep(2000);
 		
 		return this;
 	}
 
-	public RefreshPage selectNoOfNights(String enterNoOfNights) {
+	public RefreshPage selectNoOfNights(String enterNoOfNights) throws InterruptedException {
 		SelectClassUtils.selectByVisibleText(selectNoOfNights,enterNoOfNights );
 		ExtentLogger.info("No of night is  "+enterNoOfNights+" selected");
+		Thread.sleep(2000);
 		return this;
 	}
 
@@ -116,7 +118,7 @@ public class RefreshPage {
 	}
 	
 	public String getPriceText() {
-	WebDriverWait wait =new WebDriverWait(new DriverManager().getDriver(), Duration.ofSeconds(10));
+	WebDriverWait wait =new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10));
 		
 		return wait.until(ExpectedConditions.visibilityOf(getPriceText)).getText();
 		
@@ -125,7 +127,7 @@ public class RefreshPage {
 	}
 	
 	public String getRefreshSumbittedText() {
-		WebDriverWait wait =new WebDriverWait(new DriverManager().getDriver(), Duration.ofSeconds(10));
+		WebDriverWait wait =new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10));
 		
 		return wait.until(ExpectedConditions.visibilityOf(getRefreshSumbittedText)).getText();
 		

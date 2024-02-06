@@ -16,13 +16,14 @@ public class Drivers {
 
 	public void initDrivers(String browser) {
 
-		if (Objects.isNull(new DriverManager().getDriver())) {
+		if (Objects.isNull(DriverManager.getDriver())) {
 			if (browser.equalsIgnoreCase("chrome")) {
 				//System.setProperty("webdriver.chrome.driver", FrameworkConstant.getChromeDriverPath());
 
 				ChromeOptions chromeOptions = new ChromeOptions();
 				chromeOptions.addArguments("--remote-allow-origins=*");
 				chromeOptions.addArguments("--headless=new");
+				chromeOptions.addArguments("--incognito");
 
 				DriverManager.setDriver(new ChromeDriver(chromeOptions));
 			} else if (browser.equalsIgnoreCase("firefox")) {
@@ -54,10 +55,10 @@ public class Drivers {
 
 	public static void quitDriver() {
 
-		if (Objects.nonNull(new DriverManager().getDriver())) {
+		if (Objects.nonNull(DriverManager.getDriver())) {
 
-			new DriverManager().getDriver().quit();
-			new DriverManager().unload();
+			DriverManager.getDriver().quit();
+			DriverManager.unload();
 
 		}
 

@@ -80,7 +80,7 @@ public class ExplicitWaitFactory {
 				elementIsDisplay(element);
 			}
 
-			JavaScriptUtils.clickElementByJavascript(new DriverManager().getDriver(), element);
+			JavaScriptUtils.clickElementByJavascript(DriverManager.getDriver(), element);
 
 			try {
 				ExtentLogger.pass(ele, true);
@@ -124,17 +124,17 @@ public class ExplicitWaitFactory {
 
 	private static void elementToBeClickable(WebElement forClickAction) {
 
-		new WebDriverWait(new DriverManager().getDriver(), Duration.ofSeconds(10))
+		new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(30))
 				.until(ExpectedConditions.elementToBeClickable(forClickAction));
 	}
 
 	private static void elementVisibiity(WebElement sendKeys) {
-		 new WebDriverWait(new DriverManager().getDriver(), Duration.ofSeconds(10))
+		 new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(30))
 				.until(ExpectedConditions.visibilityOf(sendKeys));
 	}
 
 	private static void elementIsDisplay(WebElement elementDispays) {
-		Wait<WebDriver> wait = new WebDriverWait(new DriverManager().getDriver(), Duration.ofSeconds(10));
+		Wait<WebDriver> wait = new WebDriverWait( DriverManager.getDriver(), Duration.ofSeconds(30));
 		wait.until(d ->{
 			d.navigate().refresh();
 			elementDispays.isDisplayed();

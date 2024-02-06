@@ -181,7 +181,7 @@ public class Hnadel_2 {
 	    
 	
 
-	    public class StaleElementExceptionHandling {
+	    public static class StaleElementExceptionHandling {
 	        public static void staleElementExceptionHandling(WebDriver driver) {
 	            // Set the path to your ChromeDriver executable
 	      
