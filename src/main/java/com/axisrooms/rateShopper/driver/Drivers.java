@@ -22,7 +22,7 @@ public class Drivers {
 
 				ChromeOptions chromeOptions = new ChromeOptions();
 				chromeOptions.addArguments("--remote-allow-origins=*");
-				chromeOptions.addArguments("--headless=new");
+				//chromeOptions.addArguments("--headless=new");
 				chromeOptions.addArguments("--incognito");
 
 				DriverManager.setDriver(new ChromeDriver(chromeOptions));

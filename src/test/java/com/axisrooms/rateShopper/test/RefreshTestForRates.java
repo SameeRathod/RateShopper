@@ -23,7 +23,7 @@ public class RefreshTestForRates extends RateShopperBaseTest {
 
 		new HomePage().rateShoppingTest().selectHotelFromList(getData.get("selectProperties"));
 		new HomePage().clickOnReloadButton();
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		new HomePage().clickOnRefreshButton();
 		new RefreshPage().refreshForCheckBox(getData.get("RefreshFor")).selectNoOfGuest(getData.get("NoOfAdults"))
 				.selectNoOfNights(getData.get("NoOfNights")).dateQuickLinks(getData.get("DateQuickLinks"))
@@ -32,14 +32,15 @@ public class RefreshTestForRates extends RateShopperBaseTest {
 		//AssertionUtility.assertElementTextEquals(new RefreshPage().getRefreshSumbittedText, "Refresh Submitted!");
 
 		new RefreshPage().clickOnOkButton();
-		new HomePage().clickOnReloadButton();
-		Thread.sleep(Integer.parseInt(getData.get("TimeForWait")));
+		//new HomePage().clickOnReloadButton();
+		//Thread.sleep(Integer.parseInt(getData.get("TimeForWait")));
 
-		new HomePage().clickOnReloadButton();
+		//new HomePage().clickOnReloadButton();
 
 		assertEquals(new RefreshPage().getPriceText(), "Prices");
 
 		// HomePage().clickOnGraphCircle(30);
+		Thread.sleep(10000);
 
 		new HomePage().MouseHoverOnGraphCircle(13, DriverManager.getDriver());
 
