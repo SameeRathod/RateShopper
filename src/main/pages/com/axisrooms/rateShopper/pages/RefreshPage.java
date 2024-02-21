@@ -90,7 +90,7 @@ public class RefreshPage {
 	public RefreshPage selectNoOfGuest(String enterNoOfGuest) throws InterruptedException {
 		SelectClassUtils.selectByVisibleText(selectNoOfGuest, enterNoOfGuest);
 		ExtentLogger.info("No of Guest is  "+enterNoOfGuest+" selected");
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 		
 		return this;
 	}
@@ -98,7 +98,7 @@ public class RefreshPage {
 	public RefreshPage selectNoOfNights(String enterNoOfNights) throws InterruptedException {
 		SelectClassUtils.selectByVisibleText(selectNoOfNights,enterNoOfNights );
 		ExtentLogger.info("No of night is  "+enterNoOfNights+" selected");
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 		return this;
 	}
 

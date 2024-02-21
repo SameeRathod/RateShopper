@@ -99,10 +99,10 @@ public class HomePage {
 	}
 
 	public RefreshPage clickOnRefreshButton() {
-		WebDriverWait wait=new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.elementToBeClickable(clickOnRefreshButton)).click();
+		/*WebDriverWait wait=new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.elementToBeClickable(clickOnRefreshButton)).click();*/
 		
-		//new ExplicitWaitFactory().click(clickOnRefreshButton, WaitStrategy.CLICKABLE, " element is clicked");
+		 ExplicitWaitFactory.click(clickOnRefreshButton, WaitStrategy.CLICKABLE, " element is clicked");
 
 		return new RefreshPage();
 	}
@@ -197,7 +197,7 @@ public class HomePage {
 				while (jobRunningText.getText().equalsIgnoreCase("Job Running")) {
 					ActionsClassUtils.moveOffSet(jobRunningText,driver);
 					try {
-						Thread.sleep(15000);
+						Thread.sleep(1000);
 					} catch (InterruptedException e) {
 
 						e.printStackTrace();
